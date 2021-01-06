@@ -1,11 +1,15 @@
 name: Run Tests
 description: 'Runs phpunit tests uisng the stubs submodule' 
-
+inputs:
+  phpunit-version: 
+    description: 'The version of phpunit which us used'
+    required: false
+    default: ''
 
 runs:
   using: "composite"
   steps:
-      - run: wget https://phar.phpunit.de/phpunit.phar
+      - run: wget https://phar.phpunit.de/phpunit${{ inputs.phpunit-version }}.phar
         shell: bash
       - run: phpdbg -qrr phpunit.phar tests --configuration tests/phpunit.xml
         shell: bash
