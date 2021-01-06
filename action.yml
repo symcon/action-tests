@@ -1,0 +1,11 @@
+name: Run Tests
+description: 'Runs phpunit tests uisng the stubs submodule' 
+
+
+runs:
+  using: "composite"
+  steps:
+      - run: wget https://phar.phpunit.de/phpunit.phar
+        shell: bash
+      - run: phpdbg -qrr phpunit.phar tests --configuration tests/phpunit.xml
+        shell: bash
