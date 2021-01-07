@@ -11,5 +11,5 @@ runs:
   steps:
       - run: wget https://phar.phpunit.de/phpunit${{ inputs.phpunit-version }}.phar
         shell: bash
-      - run: phpdbg -qrr phpunit.phar tests --configuration tests/phpunit.xml
+      - run: phpdbg -qrr phpunit${{ inputs.phpunit-version }}.phar tests --configuration tests/phpunit.xml
         shell: bash
